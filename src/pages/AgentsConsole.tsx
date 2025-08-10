@@ -46,9 +46,20 @@ export default function AgentsConsole() {
                 <CardTitle>{a}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="flex gap-2">
-                  <Button onClick={() => toast({ title: `${a} triggered (Demo)` })}>Run once</Button>
-                  <Button variant="secondary" onClick={() => toast({ title: `${a} scheduled batch (Demo)` })}>Schedule batch</Button>
+                <div className="flex gap-3">
+                  <Button 
+                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-medium" 
+                    onClick={() => toast({ title: `${a} triggered (Demo)` })}
+                  >
+                    ▶ Run Once
+                  </Button>
+                  <Button 
+                    variant="secondary" 
+                    className="flex-1 font-medium" 
+                    onClick={() => toast({ title: `${a} scheduled batch (Demo)` })}
+                  >
+                    📅 Schedule Batch
+                  </Button>
                 </div>
                 <div className="mt-2 space-y-2">
                   <p className="text-sm text-muted-foreground">Latest logs</p>
