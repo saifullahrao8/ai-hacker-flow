@@ -5,6 +5,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/Dashboard";
+import AgentsConsole from "./pages/AgentsConsole";
+import CommunityHub from "./pages/CommunityHub";
+import EventPlanner from "./pages/EventPlanner";
+import LogsAnalytics from "./pages/LogsAnalytics";
+import Settings from "./pages/Settings";
+import Header from "./components/layout/Header";
+import { ModeProvider } from "./context/ModeContext";
 
 const queryClient = new QueryClient();
 
@@ -14,11 +22,20 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <ModeProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/agents" element={<AgentsConsole />} />
+            <Route path="/community" element={<CommunityHub />} />
+            <Route path="/planner" element={<EventPlanner />} />
+            <Route path="/logs" element={<LogsAnalytics />} />
+            <Route path="/settings" element={<Settings />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ModeProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
