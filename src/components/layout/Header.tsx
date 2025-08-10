@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container max-w-7xl mx-auto flex items-center justify-between py-3">
-        <Link to="/dashboard" className="flex items-center gap-2">
+        <Link to="/navigation" className="flex items-center gap-2">
           <div className="relative">
             <motion.div
               className="h-8 w-8 rounded-md bg-accent/20 border border-accent/30"
