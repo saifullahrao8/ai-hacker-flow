@@ -15,6 +15,7 @@ import Header from "./components/layout/Header";
 import { ModeProvider } from "./context/ModeContext";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "./components/layout/AppSidebar";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -22,7 +23,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ModeProvider>
           <SidebarProvider>
             <div className="flex min-h-screen w-full">
