@@ -14,9 +14,22 @@ const ModeContext = createContext<ModeContextValue | undefined>(undefined);
 export const ModeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { toast } = useToast();
   const [mode, setModeState] = useState<Mode>(() => (localStorage.getItem("ht_mode") as Mode) || "demo");
+  const [liveAvailable, setLiveAvailable] = useState(false);
 
-  // In this first version, Live is disabled until Supabase is connected and keys are stored.
-  const liveAvailable = false;
+  // Check if required API keys are stored in localStorage
+  const checkLiveAvailability = () => {
+    const requiredKeys = ["openai", "slack_verification", "discord_public"];
+    return requiredKeys.every(key => localStorage.getItem(`ht_api_${key}`));
+  };
+
+  // Update live availability on mount and storage changes
+  useEffect(() => {
+    const updateAvailability = () => setLiveAvailable(checkLiveAvailability());
+    updateAvailability();
+    
+    window.addEventListener('storage', updateAvailability);
+    return () => window.removeEventListener('storage', updateAvailability);
+  }, []);
 
   const setMode = (m: Mode) => {
     if (m === "live" && !liveAvailable) {
