@@ -4,14 +4,26 @@ import { Calendar } from "@/components/ui/calendar";
 import { demoEvents } from "@/data/demo";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import SEO from "@/components/SEO";
 
 export default function EventPlanner() {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
-    <main className="container max-w-7xl mx-auto py-8">
-      <h1 className="text-3xl font-semibold">Event Planner</h1>
-      <p className="text-muted-foreground mt-1">Interactive calendar and agenda (Demo)</p>
+    <>
+      <SEO title="Hackathon Twin — Event Planner" description="Interactive calendar and agenda" canonicalPath="/planner" />
+      <main className="container max-w-7xl mx-auto py-8">
+        <section className="mb-6">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h1 className="text-3xl font-semibold">Event Planner</h1>
+              <p className="text-muted-foreground mt-1">Interactive calendar and agenda (Demo)</p>
+            </div>
+            <div className="hidden md:flex gap-2">
+              <Button onClick={() => toast({ title: "Create event (Demo)" })}>Create Event</Button>
+            </div>
+          </div>
+        </section>
 
       <section className="grid gap-6 md:grid-cols-2 mt-6">
         <Card>
@@ -39,6 +51,6 @@ export default function EventPlanner() {
           </CardContent>
         </Card>
       </section>
-    </main>
+      </main>
+    </>
   );
-}

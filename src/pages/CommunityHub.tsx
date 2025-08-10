@@ -1,12 +1,27 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { demoLeaderboard, demoParticipants } from "@/data/demo";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
+import SEO from "@/components/SEO";
 
 export default function CommunityHub() {
   return (
-    <main className="container max-w-7xl mx-auto py-8">
-      <h1 className="text-3xl font-semibold">Community Hub</h1>
-      <p className="text-muted-foreground mt-1">Leaderboard, referrals and badges (Demo)</p>
+    <>
+      <SEO title="Hackathon Twin — Community Hub" description="Leaderboard, referrals and badges" canonicalPath="/community" />
+      <main className="container max-w-7xl mx-auto py-8">
+        <section className="mb-6">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h1 className="text-3xl font-semibold">Community Hub</h1>
+              <p className="text-muted-foreground mt-1">Leaderboard, referrals and badges (Demo)</p>
+            </div>
+            <div className="hidden md:flex gap-2">
+              <Button variant="secondary" onClick={() => toast({ title: "Invite link copied (Demo)" })}>Invite Members</Button>
+              <Button variant="outline" onClick={() => toast({ title: "Leaderboard exported (Demo)" })}>Export</Button>
+            </div>
+          </div>
+        </section>
 
       <section className="grid gap-6 md:grid-cols-2 mt-6">
         <Card>
@@ -53,6 +68,6 @@ export default function CommunityHub() {
           </CardContent>
         </Card>
       </section>
-    </main>
+      </main>
+    </>
   );
-}

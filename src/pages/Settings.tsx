@@ -69,9 +69,11 @@ export default function Settings() {
   };
 
   return (
-    <main className="container max-w-4xl mx-auto py-8">
-      <h1 className="text-3xl font-semibold">Settings</h1>
-      <p className="text-muted-foreground mt-1">Manage API keys and Live mode</p>
+    <>
+      <SEO title="Hackathon Twin — Settings" description="Manage API keys and Live mode" canonicalPath="/settings" />
+      <main className="container max-w-4xl mx-auto py-8">
+        <h1 className="text-3xl font-semibold">Settings</h1>
+        <p className="text-muted-foreground mt-1">Manage API keys and Live mode</p>
 
       <Alert className="mt-6">
         <Shield className="h-4 w-4" />
@@ -138,6 +140,6 @@ export default function Settings() {
           For secure API key storage, backend workflows, and database functionality, connect your project to Supabase using Lovable's native integration.
         </AlertDescription>
       </Alert>
-    </main>
+      </main>
+    </>
   );
-}

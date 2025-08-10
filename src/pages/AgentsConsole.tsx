@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { demoLogs } from "@/data/demo";
 import type { AgentRole } from "@/data/demo";
 import { toast } from "@/hooks/use-toast";
-
+import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 const agents: AgentRole[] = [
   "Outreach Agent",
   "Team & Volunteer Manager Agent",
@@ -17,10 +18,21 @@ const agents: AgentRole[] = [
 
 export default function AgentsConsole() {
   return (
-    <main className="container max-w-7xl mx-auto py-8">
-      <h1 className="text-3xl font-semibold">Agents Console</h1>
-      <p className="text-muted-foreground mt-1">Trigger agents and review the latest logs (Demo)</p>
-
+    <>
+      <SEO title="Hackathon Twin — Agents Console" description="Trigger agents and review the latest logs" canonicalPath="/agents" />
+      <main className="container max-w-7xl mx-auto py-8">
+        <section className="mb-6">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h1 className="text-3xl font-semibold">Agents Console</h1>
+              <p className="text-muted-foreground mt-1">Trigger agents and review the latest logs (Demo)</p>
+            </div>
+            <div className="hidden md:flex gap-2">
+              <Button asChild variant="outline"><Link to="/logs">View Logs</Link></Button>
+              <Button variant="secondary" onClick={() => toast({ title: `Add Agent (Demo)` })}>Add Agent</Button>
+            </div>
+          </div>
+        </section>
       <Tabs defaultValue={agents[0]} className="mt-6">
         <TabsList className="flex flex-wrap">
           {agents.map((a) => (
@@ -54,6 +66,7 @@ export default function AgentsConsole() {
           </TabsContent>
         ))}
       </Tabs>
-    </main>
+      </main>
+    </>
   );
 }

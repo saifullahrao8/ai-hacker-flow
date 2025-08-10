@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { Activity, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import SEO from "@/components/SEO";
 const fadeIn = { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 } };
 
 export default function Dashboard() {
@@ -17,12 +17,22 @@ export default function Dashboard() {
   const latestLogs = useMemo(() => demoLogs.slice(0, 4), []);
 
   return (
-    <main className="container max-w-7xl mx-auto py-8">
+    <>
+      <SEO title="Hackathon Twin — Dashboard" description="KPIs, live agent feed, and quick actions" canonicalPath="/dashboard" />
+      <main className="container max-w-7xl mx-auto py-8">
       <section className="mb-8">
-        <motion.h1 {...fadeIn} transition={{ duration: 0.4 }} className="text-3xl font-semibold">
-          Hackathon Twin Dashboard
-        </motion.h1>
-        <p className="text-muted-foreground mt-1">KPIs, live agent feed, and quick actions</p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <motion.h1 {...fadeIn} transition={{ duration: 0.4 }} className="text-3xl font-semibold">
+              Hackathon Twin Dashboard
+            </motion.h1>
+            <p className="text-muted-foreground mt-1">KPIs, live agent feed, and quick actions</p>
+          </div>
+          <div className="hidden md:flex gap-2">
+            <Button variant="outline" onClick={() => toast({ title: "Exported (Demo)" })}>Export</Button>
+            <Button variant="secondary" onClick={() => toast({ title: "Shared (Demo)" })}>Share</Button>
+          </div>
+        </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
@@ -64,9 +74,9 @@ export default function Dashboard() {
           </Card>
         </motion.div>
       </section>
-    </main>
+      </main>
+    </>
   );
-}
 
 function StatCard({ title, value, icon }: { title: string; value: string | number; icon: React.ReactNode }) {
   return (
