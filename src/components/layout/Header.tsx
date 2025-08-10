@@ -48,6 +48,15 @@ export default function Header() {
           <span className="font-semibold tracking-wide">Hackathon Twin</span>
         </Link>
 
+        <nav className="flex items-center gap-4">
+          <Link to="/dashboard" className={cn("px-3 py-1 text-sm rounded-md", location.pathname === "/dashboard" ? "bg-secondary text-primary" : "hover:bg-secondary/50")}>Dashboard</Link>
+          <Link to="/agents" className={cn("px-3 py-1 text-sm rounded-md", location.pathname === "/agents" ? "bg-secondary text-primary" : "hover:bg-secondary/50")}>Agents</Link>
+          <Link to="/community" className={cn("px-3 py-1 text-sm rounded-md", location.pathname === "/community" ? "bg-secondary text-primary" : "hover:bg-secondary/50")}>Community</Link>
+          <Link to="/planner" className={cn("px-3 py-1 text-sm rounded-md", location.pathname === "/planner" ? "bg-secondary text-primary" : "hover:bg-secondary/50")}>Planner</Link>
+          <Link to="/logs" className={cn("px-3 py-1 text-sm rounded-md", location.pathname === "/logs" ? "bg-secondary text-primary" : "hover:bg-secondary/50")}>Logs</Link>
+          <Link to="/settings" className={cn("px-3 py-1 text-sm rounded-md", location.pathname === "/settings" ? "bg-secondary text-primary" : "hover:bg-secondary/50")}>Settings</Link>
+        </nav>
+
         <div className="flex items-center gap-2">
           <ModeSwitch mode={mode} setMode={setMode} liveAvailable={liveAvailable} />
         </div>
