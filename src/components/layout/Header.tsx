@@ -33,7 +33,6 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container max-w-7xl mx-auto flex items-center justify-between py-3">
-        <SidebarTrigger className="md:hidden" />
         <Link to="/dashboard" className="flex items-center gap-2">
           <div className="relative">
             <motion.div
@@ -48,24 +47,6 @@ export default function Header() {
           </div>
           <span className="font-semibold tracking-wide">Hackathon Twin</span>
         </Link>
-
-        <nav className="hidden md:flex items-center gap-2">
-          {nav.map(({ to, label, icon: Icon }) => (
-            <Link
-              key={to}
-              to={to}
-              className={cn(
-                "px-3 py-2 rounded-md text-sm border",
-                location.pathname === to ? "bg-secondary/60 border-accent/40" : "hover:bg-secondary/40"
-              )}
-            >
-              <span className="inline-flex items-center gap-2">
-                <Icon size={16} />
-                {label}
-              </span>
-            </Link>
-          ))}
-        </nav>
 
         <div className="flex items-center gap-2">
           <ModeSwitch mode={mode} setMode={setMode} liveAvailable={liveAvailable} />

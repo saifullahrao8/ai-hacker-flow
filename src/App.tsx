@@ -26,22 +26,19 @@ const App = () => (
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <ModeProvider>
           <SidebarProvider>
-            <div className="flex min-h-screen w-full">
-              <AppSidebar />
-              <div className="flex-1">
-                <Header />
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/agents" element={<AgentsConsole />} />
-                  <Route path="/community" element={<CommunityHub />} />
-                  <Route path="/planner" element={<EventPlanner />} />
-                  <Route path="/logs" element={<LogsAnalytics />} />
-                  <Route path="/settings" element={<Settings />} />
-                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </div>
+            <div className="min-h-screen w-full">
+              <Header />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/agents" element={<AgentsConsole />} />
+                <Route path="/community" element={<CommunityHub />} />
+                <Route path="/planner" element={<EventPlanner />} />
+                <Route path="/logs" element={<LogsAnalytics />} />
+                <Route path="/settings" element={<Settings />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </div>
           </SidebarProvider>
         </ModeProvider>
