@@ -77,6 +77,7 @@ export default function Dashboard() {
       </main>
     </>
   );
+}
 
 function StatCard({ title, value, icon }: { title: string; value: string | number; icon: React.ReactNode }) {
   return (

@@ -23,9 +23,9 @@ const items = [
 
 export default function AppSidebar() {
   return (
-    <Sidebar collapsible className="border-r">
+    <Sidebar collapsible="icon" className="border-r">
       <SidebarContent>
-        <SidebarGroup defaultOpen>
+        <SidebarGroup>
           <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

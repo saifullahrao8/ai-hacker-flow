@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { Key, Shield, AlertCircle } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const fields = [
   { key: "openai", label: "OpenAI API Key", required: true },
@@ -143,3 +144,4 @@ export default function Settings() {
       </main>
     </>
   );
+}

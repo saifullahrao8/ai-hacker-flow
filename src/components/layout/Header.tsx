@@ -35,6 +35,7 @@ export default function Header() {
       <div className="container max-w-7xl mx-auto flex items-center justify-between py-3">
         <SidebarTrigger className="md:hidden" />
         <Link to="/dashboard" className="flex items-center gap-2">
+          <div className="relative">
             <motion.div
               className="h-8 w-8 rounded-md bg-accent/20 border border-accent/30"
               animate={{ boxShadow: [

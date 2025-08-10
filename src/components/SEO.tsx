@@ -40,17 +40,17 @@ export default function SEO({ title, description, canonicalPath, structuredData 
 
     // Structured data (JSON-LD)
     const id = "structured-data";
-    let script = document.getElementById(id);
+    let scriptEl = document.getElementById(id) as HTMLScriptElement | null;
     if (structuredData) {
-      if (!script) {
-        script = document.createElement("script");
-        script.id = id;
-        script.type = "application/ld+json";
-        document.head.appendChild(script);
+      if (!scriptEl) {
+        scriptEl = document.createElement("script");
+        scriptEl.id = id;
+        scriptEl.type = "application/ld+json";
+        document.head.appendChild(scriptEl);
       }
-      script.textContent = JSON.stringify(structuredData);
-    } else if (script) {
-      script.remove();
+      scriptEl.textContent = JSON.stringify(structuredData);
+    } else if (scriptEl) {
+      scriptEl.remove();
     }
   }, [title, description, canonicalPath, structuredData, location.pathname]);
 
