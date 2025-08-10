@@ -102,11 +102,12 @@ function ModeSwitch({ mode, setMode, liveAvailable }: { mode: "demo" | "live"; s
       <motion.span
         layout
         transition={{ type: "spring", stiffness: 400, damping: 35 }}
-        className={cn(
-          "absolute inset-1 rounded-full shadow",
-          mode === "demo" ? "left-1 right-1 bg-accent/20" : "left-1 right-1 bg-primary/20"
-        )}
-        style={{ width: "50%", left: mode === "demo" ? 4 : "50%" }}
+        className="absolute top-1 bottom-1 rounded-full shadow"
+        style={{
+          width: "calc(50% - 4px)",
+          left: mode === "demo" ? 4 : "calc(50% + 0px)",
+          background: mode === "demo" ? "hsl(var(--accent) / 0.2)" : "hsl(var(--primary) / 0.2)",
+        }}
       />
     </div>
   );
