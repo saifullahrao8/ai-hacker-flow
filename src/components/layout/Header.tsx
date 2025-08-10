@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Rocket, Users, ClipboardList, CalendarDays, LineChart, Settings as SettingsIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import logo from "@/assets/logo.png";
 const nav = [
   { to: "/dashboard", label: "Dashboard", icon: Rocket },
   { to: "/agents", label: "Agents", icon: ClipboardList },
@@ -35,14 +36,10 @@ export default function Header() {
       <div className="container max-w-7xl mx-auto flex items-center justify-between py-3">
         <Link to="/dashboard" className="flex items-center gap-2">
           <div className="relative">
-            <motion.div
-              className="h-8 w-8 rounded-md bg-accent/20 border border-accent/30"
-              animate={{ boxShadow: [
-                "0 0 0px hsl(var(--accent-glow) / 0)",
-                "0 0 24px hsl(var(--accent-glow) / 0.6)",
-                "0 0 0px hsl(var(--accent-glow) / 0)",
-              ]}}
-              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+            <img 
+              src={logo} 
+              alt="Hackathon Twin Logo" 
+              className="h-8 w-8 rounded-md object-cover"
             />
           </div>
           <span className="font-semibold tracking-wide">Hackathon Twin</span>
